@@ -63,16 +63,17 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELETE route to remove a thought by its _id
+
 router.delete('/:id', async (req, res) => {
     try {
-        const thought = await Thought.findById(req.params.id);
-        if (!thought) {
+        const deletedThought = await Thought.findByIdAndDelete(req.params.id);
+        if (!deletedThought) {
             return res.status(404).json({ message: 'Thought not found' });
         }
-        await thought.remove();
         res.json({ message: 'Thought deleted' });
     } catch (error) {
-        res.status(500).json({ message: 'There was an error. Please try again' });
+        console.error(error);
+        res.status(500).json({ message: error.message });
     }
 });
 
