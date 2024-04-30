@@ -33,3 +33,26 @@ userSchema.virtual('friendCount').get(function () {
 const User = model('User', userSchema);
 
 module.exports = User;
+
+
+
+
+
+
+
+// Added initial data (referenced activity 19) to help with testing
+User.find({})
+    .exec()
+    .then(async users => {
+        if (users.length === 0) {
+            try {
+                const insertedUsers = await User.insertMany([
+                    { username: 'user1', email: 'user1@user1.com' },
+                    { username: 'user2', email: 'user2@example.com' },
+                ]);
+                console.log('Inserted users:', insertedUsers);
+            } catch (error) {
+                console.error('Error inserting initial users:', error);
+            }
+        }
+    });
