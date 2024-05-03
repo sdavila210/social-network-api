@@ -2,7 +2,7 @@
 An API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list using Express.js for routing, a MongoDB database, and the Mongoose ODM.
 
 ## Description
-    This is a social network web application API for a social media start up that uses a NoSQL database. This is intended so that the website can handle large amounts of unstructured data. 
+This is a social network web application API for a social media start up that uses a NoSQL database. This is intended so that the website can handle large amounts of unstructured data. 
 
 
   ## Table of Contents
